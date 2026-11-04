@@ -9,13 +9,6 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
-      }
-    },
     "page_banner_EfAWAH": {
       "type": "page-banner",
       "name": "Page banner",
@@ -34,7 +27,6 @@
     }
   },
   "order": [
-    "page_banner_EfAWAH",
-    "main"
+    "page_banner_EfAWAH"
   ]
 }
