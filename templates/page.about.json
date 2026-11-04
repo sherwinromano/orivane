@@ -15,9 +15,26 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "page_banner_EfAWAH": {
+      "type": "page-banner",
+      "name": "Page banner",
+      "settings": {
+        "image": "shopify://shop_images/hero-image.webp",
+        "background_color": "#111111",
+        "overlay_color": "#000000",
+        "overlay_opacity": 50,
+        "heading": "",
+        "uppercase_heading": true,
+        "heading_size": 150,
+        "show_breadcrumbs": true,
+        "desktop_height": 450,
+        "mobile_height": 350
+      }
     }
   },
   "order": [
+    "page_banner_EfAWAH",
     "main"
   ]
 }
