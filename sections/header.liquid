@@ -16,88 +16,124 @@
   <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 
+{%- if section.settings.logo_position == 'middle-left' -%}
+  <link
+    rel="stylesheet"
+    href="{{ 'custom-header-layout.css' | asset_url }}"
+    media="print"
+    onload="this.media='all'"
+  >
+{% endif %}
+
 <style>
-  header-drawer {
-    justify-self: start;
-    margin-left: -1.2rem;
+    header-drawer {
+      justify-self: start;
+      margin-left: -1.2rem;
+    }
+
+    {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
+      .scrolled-past-header .header__heading-logo-wrapper {
+        width: 75%;
+      }
+    {%- endif -%}
+
+    {%- if section.settings.menu_type_desktop != "drawer" -%}
+      @media screen and (min-width: 990px) {
+        header-drawer {
+          display: none;
+        }
+      }
+    {%- endif -%}
+
+    .menu-drawer-container {
+      display: flex;
+    }
+
+    .list-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .list-menu--inline {
+      display: inline-flex;
+      flex-wrap: wrap;
+    }
+
+    summary.list-menu__item {
+      padding-right: 2.7rem;
+    }
+
+    .list-menu__item {
+      display: flex;
+      align-items: center;
+      line-height: calc(1 + 0.3 / var(--font-body-scale));
+    }
+
+    .list-menu__item--link {
+      text-decoration: none;
+      padding-bottom: 1rem;
+      padding-top: 1rem;
+      line-height: calc(1 + 0.8 / var(--font-body-scale));
+    }
+
+    h1.header__heading, header.header a  {
+    text-transform: uppercase;
   }
 
-  {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
-    .scrolled-past-header .header__heading-logo-wrapper {
-      width: 75%;
-    }
-  {%- endif -%}
+  nav.header__inline-menu > ul li {
+    text-transform: uppercase;
+  }
 
-  {%- if section.settings.menu_type_desktop != "drawer" -%}
-    @media screen and (min-width: 990px) {
-      header-drawer {
-        display: none;
+  nav.header__inline-menu > ul li:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease-in-out;
+  }
+
+    .header__icon .svg-wrapper {
+      width: 25px;
+      height: 25px;
+    }
+
+    .header__icons > details-modal details summary:hover,
+    .header__icons > shopify-account:hover,
+    .header__icons > a#cart-icon-bubble:hover {
+      transform: translateY(-2px);
+      transition: transform 0.1s ease-in-out;
+    }
+
+
+
+    @media screen and (min-width: 750px) {
+      .list-menu__item--link {
+        padding-bottom: 0.5rem;
+        padding-top: 0.5rem;
       }
     }
-  {%- endif -%}
 
-  .menu-drawer-container {
-    display: flex;
-  }
-
-  .list-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .list-menu--inline {
-    display: inline-flex;
-    flex-wrap: wrap;
-  }
-
-  summary.list-menu__item {
-    padding-right: 2.7rem;
-  }
-
-  .list-menu__item {
-    display: flex;
-    align-items: center;
-    line-height: calc(1 + 0.3 / var(--font-body-scale));
-  }
-
-  .list-menu__item--link {
-    text-decoration: none;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    line-height: calc(1 + 0.8 / var(--font-body-scale));
-  }
-
-  @media screen and (min-width: 750px) {
-    .list-menu__item--link {
-      padding-bottom: 0.5rem;
-      padding-top: 0.5rem;
+    shopify-account.header__icon {
+      --shopify-account-font-heading: var(--font-heading-family);
+      --shopify-account-font-heading-weight: var(--font-heading-weight);
+      --shopify-account-font-body: var(--font-body-family);
+      --shopify-account-font-body-weight: var(--font-body-weight);
+      --shopify-account-radius-base: var(--popup-corner-radius);
+      --shopify-account-radius-button: var(--buttons-radius);
+      --shopify-account-radius-button-small: var(--buttons-radius);
+      --shopify-account-radius-input: var(--inputs-radius);
+      --shopify-account-color-background: rgb(var(--color-background));
+      --shopify-account-color-text: rgb(var(--color-foreground));
+      --shopify-account-color-accent: rgb(var(--color-button));
+      --shopify-account-color-accent-text: rgb(var(--color-button-text));
+      --shopify-account-dialog-position-top: var(--account-dialog-top, var(--header-height, 0px));
     }
-  }
 
-  shopify-account.header__icon {
-    --shopify-account-font-heading: var(--font-heading-family);
-    --shopify-account-font-heading-weight: var(--font-heading-weight);
-    --shopify-account-font-body: var(--font-body-family);
-    --shopify-account-font-body-weight: var(--font-body-weight);
-    --shopify-account-radius-base: var(--popup-corner-radius);
-    --shopify-account-radius-button: var(--buttons-radius);
-    --shopify-account-radius-button-small: var(--buttons-radius);
-    --shopify-account-radius-input: var(--inputs-radius);
-    --shopify-account-color-background: rgb(var(--color-background));
-    --shopify-account-color-text: rgb(var(--color-foreground));
-    --shopify-account-color-accent: rgb(var(--color-button));
-    --shopify-account-color-accent-text: rgb(var(--color-button-text));
-    --shopify-account-dialog-position-top: var(--account-dialog-top, var(--header-height, 0px));
-  }
-
-  shopify-account.header__icon:not(:defined) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 4.4rem;
-    height: 4.4rem;
-  }
+    shopify-account.header__icon:not(:defined) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 4.4rem;
+      height: 4.4rem;
+    }
 </style>
 
 {%- style -%}
@@ -109,6 +145,53 @@
     position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
     margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
   }
+
+    .section-header:has(.header-wrapper--transparent-home) {
+      margin-bottom: calc(-1 * var(--transparent-header-height, 0px));
+    }
+
+    .header-wrapper--transparent-home {
+      background: transparent;
+      isolation: isolate;
+      border-bottom-color: transparent;
+    }
+
+    .header-wrapper--transparent-home:not(.scrolled) {
+      --color-foreground: 255, 255, 255;
+    }
+
+    .header-wrapper--transparent-home:not(.scrolled) .cart-count-bubble {
+      color: #111111;
+    }
+
+    .header-wrapper--transparent-home::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: var(--gradient-background);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 300ms ease;
+    }
+
+    .header-wrapper--transparent-home.scrolled::before {
+      opacity: 1;
+    }
+
+    .cart-count-bubble {
+      background-color: rgb(var(--color-foreground));
+    }
+
+    .header-wrapper--transparent-home.scrolled {
+      border-bottom-color: rgba(var(--color-foreground), 0.08);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .header-wrapper--transparent-home::before {
+        transition: none;
+      }
+    }
 
   @media screen and (min-width: 750px) {
     .section-header {
@@ -146,7 +229,7 @@
   {% if header_tag == 'sticky-header' %}
     data-sticky-type="{{ section.settings.sticky_header_type }}"
   {% endif %}
-  class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}"
+  class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}{% if request.page_type == 'index' %} header-wrapper--transparent-home{% endif %}"
 >
   {%- liquid
     assign social_links = false
@@ -287,7 +370,7 @@
           menu="{{ settings.customer_account_menu | default: 'customer-account-main-menu' }}"
           class="header__icon header__icon--account link focus-inset"
         >
-          <span slot="signed-out-avatar" class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
+          <span slot="signed-out-avatar" class="svg-wrapper">{{ 'custom-user-icon.svg' | inline_asset_content }}</span>
           <span slot="signed-out-avatar" class="visually-hidden">{{ 'customer.log_in' | t }}</span>
         </shopify-account>
       {%- endif -%}
@@ -300,11 +383,7 @@
       {%- endfor -%}
 
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
-        {% if cart == empty %}
-          <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
-        {% else %}
-          <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
-        {% endif %}
+        <span class="svg-wrapper">{{ 'custom-cart-icon.svg' | inline_asset_content }}</span>
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
         {%- if cart != empty -%}
           <div class="cart-count-bubble">
@@ -318,6 +397,38 @@
     </div>
   </header>
 </{{ header_tag }}>
+
+{%- if request.page_type == 'index' -%}
+  <script>
+    (() => {
+      const headerWrapper = document.querySelector('.header-wrapper--transparent-home');
+      const headerSection = headerWrapper?.closest('.section-header');
+
+      if (!headerWrapper || !headerSection) return;
+
+      const updateHeaderHeight = () => {
+        headerSection.style.setProperty('--transparent-header-height', `${headerSection.offsetHeight}px`);
+      };
+      const updateScrollState = () => {
+        headerWrapper.classList.toggle('scrolled', window.scrollY > 50);
+      };
+
+      updateHeaderHeight();
+      updateScrollState();
+      window.addEventListener('resize', updateHeaderHeight);
+      window.addEventListener('scroll', updateScrollState, { passive: true });
+
+      headerSection.addEventListener(
+        'shopify:section:unload',
+        () => {
+          window.removeEventListener('resize', updateHeaderHeight);
+          window.removeEventListener('scroll', updateScrollState);
+        },
+        { once: true }
+      );
+    })();
+  </script>
+{%- endif -%}
 
 {%- if settings.cart_type == 'notification' -%}
   {%- render 'cart-notification',
