@@ -1,0 +1,148 @@
+/* Page banner
+   Note: Dawn sets html { font-size: 62.5% }, so 1rem = 10px at default scale.
+   Type is sized in px to match the design; spacing uses rem like Dawn. */
+
+.page-banner {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--page-banner-min-height-mobile);
+  overflow: hidden;
+  background-color: var(--page-banner-bg);
+  color: var(--page-banner-text);
+  text-align: center;
+}
+
+.page-banner__media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.page-banner__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--page-banner-overlay);
+  opacity: var(--page-banner-overlay-opacity);
+  display: block !important;
+}
+
+.page-banner__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  padding: 4rem 2rem;
+}
+
+.page-banner__heading {
+  margin: 0;
+  max-width: 100%;
+  font-size: clamp(48px, 14vw, 88px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: rgb(var(--color-background));
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+.page-banner__heading--uppercase {
+  text-transform: uppercase;
+}
+
+.page-banner__breadcrumb-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: rgb(var(--color-background));
+  font-size: 1.6rem;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+.page-banner__breadcrumb-item + .page-banner__breadcrumb-item::before {
+  content: "/";
+  content: "/" / "";
+  margin-inline-end: 1rem;
+}
+
+.page-banner__breadcrumb-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-banner__breadcrumb-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.4rem;
+}
+
+.page-banner__breadcrumb-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 0.4rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .page-banner__breadcrumb-link {
+    transition: opacity 0.2s ease;
+  }
+
+  .page-banner__breadcrumb-link:hover {
+    opacity: 0.8;
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .page-banner {
+    min-height: calc(
+      (
+          var(--page-banner-min-height-mobile) +
+            var(--page-banner-min-height-desktop)
+        ) /
+        2
+    );
+  }
+
+  .page-banner__content {
+    gap: 3rem;
+    padding: 6rem 5rem;
+  }
+
+  .page-banner__heading {
+    font-size: min(11vw, var(--page-banner-heading-size));
+  }
+
+  .page-banner__breadcrumb-list {
+    font-size: 1.7rem;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+  .page-banner {
+    min-height: var(--page-banner-min-height-desktop);
+  }
+
+  .page-banner__content {
+    padding-inline: 8rem;
+  }
+
+  .page-banner__heading {
+    font-size: min(10.4vw, var(--page-banner-heading-size));
+  }
+}

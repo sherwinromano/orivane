@@ -1,0 +1,14 @@
+/* This style is to make the navlinks centered */
+
+@media screen and (min-width: 990px) {
+  .header--middle-left {
+    grid-template-areas: "heading navigation icons";
+    grid-template-columns: auto 1fr auto;
+    column-gap: 2rem;
+  }
+
+  nav.header__inline-menu {
+    display: grid;
+    place-items: center;
+  }
+}
