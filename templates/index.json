@@ -15,16 +15,23 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "heading": "True Classics",
+            "heading_size": "hxxl"
+          }
+        },
+        "text_XyDBy3": {
+          "type": "text",
+          "settings": {
+            "text": "Timeless Style. Modern You.",
+            "text_style": "body"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
+            "button_label_1": "Shop Collections",
             "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
+            "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false
@@ -33,53 +40,87 @@
       },
       "block_order": [
         "heading",
+        "text_XyDBy3",
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/hero-image.webp",
-        "image_overlay_opacity": 40,
+        "image": "shopify://shop_images/hero.webp",
+        "image_overlay_opacity": 50,
         "image_height": "large",
         "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
+        "desktop_content_position": "bottom-left",
+        "desktop_content_alignment": "left",
         "show_text_box": false,
+        "uppercase_text": true,
         "color_scheme": "scheme-3",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
         "show_text_below": false
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "shop_by_category_HW7tAN": {
+      "type": "shop-by-category",
+      "blocks": {
+        "card_Df4MqQ": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/womens-category.webp",
+            "heading": "Women",
+            "button_label": "Shop collection",
+            "link": "shopify://collections"
+          }
+        },
+        "card_jbRtQt": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/mens-category.webp",
+            "heading": "Men",
+            "button_label": "Shop collection",
+            "link": "shopify://collections"
+          }
+        }
+      },
+      "block_order": [
+        "card_Df4MqQ",
+        "card_jbRtQt"
+      ],
+      "name": "Shop by category",
       "settings": {
-        "collection": "all",
-        "products_to_show": 8,
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
+        "heading": "Shop by category",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "heading_uppercase": true,
+        "image_ratio": "portrait",
+        "card_gap": 8,
+        "overlay_opacity": 30,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_blog_dKc4EX": {
+      "type": "featured-blog",
+      "name": "t:sections.featured-blog.presets.name",
+      "settings": {
+        "blog": "news",
+        "post_limit": 3,
+        "heading": "Blog posts",
+        "heading_size": "h0",
+        "columns_desktop": 3,
         "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 44,
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_excerpt": false,
+        "color_scheme": "",
+        "padding_top": 36,
         "padding_bottom": 36
       }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "shop_by_category_HW7tAN",
+    "featured_blog_dKc4EX"
   ]
 }

@@ -13,7 +13,7 @@
       "type": "page-banner",
       "name": "Page banner",
       "settings": {
-        "image": "shopify://shop_images/hero-image.webp",
+        "image": "shopify://shop_images/hero.webp",
         "background_color": "#111111",
         "overlay_color": "#000000",
         "overlay_opacity": 50,
