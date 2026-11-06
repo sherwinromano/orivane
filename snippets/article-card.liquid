@@ -17,6 +17,23 @@
   {% render 'article-card', article: article, blog: blog, media_aspect_ratio: article.image.aspect_ratio, show_image: true, show_date: true %}
 {% enddoc %}
 
+{% style %}
+  .blog__posts .article-card .card__information {
+    padding-inline: 0;
+  }
+
+  .article-card .card__heading {
+    margin-bottom: 0;
+    font-family: var(--font-body-family);
+    text-transform: uppercase;
+  }
+
+  .article-card__info.caption-with-letter-spacing.h5 {
+    font-family: var(--font-body-family);
+    text-transform: uppercase;
+    font-size: 1.23rem;
+  }
+{% endstyle %}
 {%- if article and article != empty -%}
   {%- liquid
     assign ratio = 1
@@ -115,12 +132,16 @@
       </div>
       <div class="card__content">
         <div class="card__information">
-          <h3 class="card__heading{% if show_excerpt %} h2{% endif %}">
+          <h3
+            class="card__heading{% if show_excerpt %} h2{% endif %}"
+          >
             <a href="{{ article.url }}" class="full-unstyled-link">
               {{ article.title | truncate: 50 | escape }}
             </a>
           </h3>
-          <div class="article-card__info caption-with-letter-spacing h5">
+          <div
+            class="article-card__info caption-with-letter-spacing h5"
+          >
             {%- if show_date -%}
               <span class="circle-divider">{{ article.published_at | time_tag: format: 'date' }}</span>
             {%- endif -%}

@@ -1,0 +1,23 @@
+/* This style disables slider in blog post and convert them into flex layout if there's only 3 blogs */
+
+slider-component > .slider-buttons {
+  display: none;
+}
+
+slider-component > ul {
+  flex-direction: column;
+  flex-wrap: wrap !important;
+  align-items: center;
+  padding-inline: 1.5rem !important;
+}
+
+slider-component > ul.blog__posts li {
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+@media screen and (min-width: 750px) {
+  slider-component > ul {
+    flex-direction: row;
+  }
+}

@@ -1,0 +1,184 @@
+/* Category banner
+   Note: Dawn sets html { font-size: 62.5% }, so 1rem = 10px at default scale.
+   Outer width and gutters come from Dawn's .page-width wrapper. */
+
+.category-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.category-banner__title {
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+.category-banner__title--left {
+  text-align: left;
+}
+
+.category-banner__title--center {
+  text-align: center;
+}
+
+/* Cards: stacked on mobile, side by side from tablet up */
+.category-banner__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--category-banner-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.category-banner__item {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.category-banner__card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  aspect-ratio: var(--category-banner-ratio);
+  overflow: hidden;
+  background-color: #1a1a1a;
+  color: rgb(var(--color-background));
+  text-align: center;
+}
+
+.category-banner__media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.category-banner__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgb(0 0 0 / var(--category-banner-overlay-opacity));
+  pointer-events: none;
+}
+
+.category-banner__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.category-banner__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 2rem 1.5rem 3.2rem;
+}
+
+.category-banner__heading {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: 400;
+  font-size: 2.8rem;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: inherit;
+  overflow-wrap: break-word;
+}
+
+.category-banner__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 2rem;
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+  font-size: 1.2rem;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* Stretched link: the button is not positioned, so this overlay
+   anchors to .category-banner__card and makes the whole card clickable */
+.category-banner__button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.category-banner__button:hover {
+  background-color: rgb(var(--color-foreground));
+  color: rgb(var(--color-background));
+}
+
+.category-banner__button:focus-visible {
+  outline: 2px solid rgb(var(--color-background));
+  outline-offset: 3px;
+}
+
+.category-banner__arrow {
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .category-banner__image {
+    transition: transform 0.6s ease;
+  }
+
+  .category-banner__card:hover .category-banner__image {
+    transform: scale(1.03);
+  }
+
+  .category-banner__button {
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .category-banner__arrow {
+    transition: transform 0.2s ease;
+  }
+
+  .category-banner__button:hover .category-banner__arrow {
+    transform: translateX(3px);
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .category-banner {
+    gap: 3.2rem;
+  }
+
+  .category-banner__list {
+    flex-direction: row;
+  }
+
+  .category-banner__content {
+    padding-bottom: 4rem;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+  .category-banner__content {
+    gap: 2rem;
+    padding-bottom: 5rem;
+  }
+
+  .category-banner__heading {
+    font-size: clamp(2.8rem, 3.4vw, 4.8rem);
+  }
+
+  .category-banner__button {
+    padding: 1.3rem 2.4rem;
+    font-size: 1.3rem;
+  }
+}
