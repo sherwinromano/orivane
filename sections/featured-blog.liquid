@@ -30,10 +30,45 @@
 -%}
 
 {% if posts_displayed == 3 %}
-  {{ 'custom-blog-layout.css' | asset_url | stylesheet_tag }}
+  {% style %}
+      .featured-blog-{{ section.id }} slider-component > .slider-buttons {
+        display: none;
+      }
+
+      .featured-blog-{{ section.id }} .title-wrapper-with-link a {
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      text-decoration: none;
+      gap: 1rem;
+    }
+
+    .featured-blog-{{ section.id }} .title-wrapper-with-link a svg {
+      width: 3.55rem;
+      height: auto;
+    }
+
+      .featured-blog-{{ section.id }} slider-component > ul {
+        flex-direction: column;
+        flex-wrap: wrap !important;
+        align-items: center;
+        padding-inline: 1.5rem !important;
+      }
+
+      .featured-blog-{{ section.id }} slider-component > ul.blog__posts li {
+        margin: 0 !important;
+        width: 100% !important;
+      }
+
+      @media screen and (min-width: 750px) {
+        .featured-blog-{{ section.id }} slider-component > ul {
+          flex-direction: row;
+        }
+      }
+  {% endstyle %}
 {% endif %}
 
-<div class="blog color-{{ section.settings.color_scheme }} gradient{% if section.settings.heading == blank %} no-heading{% endif %}">
+<div class="blog featured-blog-{{ section.id }} color-{{ section.settings.color_scheme }} gradient{% if section.settings.heading == blank %} no-heading{% endif %}">
   <div class="page-width-desktop isolate{% if posts_displayed < 3 %} page-width-tablet{% endif %} section-{{ section.id }}-padding">
     {%- unless section.settings.heading == blank -%}
       <div class="title-wrapper-with-link{% if posts_displayed > 2 %} title-wrapper--self-padded-tablet-down{% else %} title-wrapper--self-padded-mobile{% endif %} title-wrapper--no-top-margin">
@@ -43,7 +78,7 @@
           {% if settings.animations_reveal_on_scroll %}
             data-cascade
           {% endif %}
-          style="text-transform: uppercase"
+          style="{% if section.settings.uppercase_heading %} text-transform: uppercase; {% endif %}"
         >
           {{ section.settings.heading }}
         </h2>
@@ -55,7 +90,7 @@
             style="text-transform: uppercase; text-decoration: none;"
           >
             {{ 'sections.featured_blog.view_all' | t }}
-            <span>{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+            {{ 'long-arrow.svg' | inline_asset_content }}
           </a>
         {%- endif -%}
       </div>
@@ -263,6 +298,12 @@
       ],
       "default": "h1",
       "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "uppercase_heading",
+      "default": false,
+      "label": "Uppercase heading"
     },
     {
       "type": "header",

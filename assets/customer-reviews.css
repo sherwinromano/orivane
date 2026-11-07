@@ -1,0 +1,207 @@
+/* Customer reviews
+   Note: Dawn sets html { font-size: 62.5% }, so 1rem = 10px at default scale.
+   Outer width and gutters come from Dawn's .page-width wrapper.
+   Columns: 1 (mobile) / 2 (768px+) / 3 (1024px+). */
+
+.customer-reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+/* Heading */
+.customer-reviews__title {
+  margin: 0;
+  text-align: center;
+  line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
+  letter-spacing: 0.01em;
+  overflow-wrap: break-word;
+}
+
+.customer-reviews__title--uppercase {
+  text-transform: uppercase;
+}
+
+/* Slider */
+.customer-reviews__slider {
+  display: block;
+}
+
+.customer-reviews__track {
+  --customer-reviews-per-view: 1;
+  --customer-reviews-gap: 2rem;
+
+  display: flex;
+  justify-content: safe center;
+  gap: var(--customer-reviews-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.customer-reviews__track::-webkit-scrollbar {
+  display: none;
+}
+
+.customer-reviews__track:focus-visible {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.75);
+  outline-offset: 0.4rem;
+}
+
+.customer-reviews__track.is-dragging {
+  scroll-snap-type: none;
+  user-select: none;
+}
+
+.customer-reviews__item {
+  flex: 0 0
+    calc(
+      (
+          100% - (var(--customer-reviews-per-view) - 1) *
+            var(--customer-reviews-gap)
+        ) /
+        var(--customer-reviews-per-view)
+    );
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+/* Review */
+.customer-reviews__review {
+  margin: 0;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.customer-reviews__quote {
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+.customer-reviews__quote p {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.6;
+  color: rgba(var(--color-foreground), 0.75);
+  text-wrap: pretty;
+}
+
+.customer-reviews__caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 3rem;
+  color: rgb(var(--color-foreground));
+}
+
+.customer-reviews__name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.customer-reviews__rating {
+  display: inline-flex;
+  gap: 0.4rem;
+}
+
+.customer-reviews__star {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+}
+
+.customer-reviews__star--empty {
+  opacity: 0.3;
+}
+
+/* Pagination dots */
+.customer-reviews__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-top: 4.8rem;
+}
+
+.customer-reviews__dots[hidden] {
+  display: none;
+}
+
+.customer-reviews__dot {
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: rgb(var(--color-foreground));
+  cursor: pointer;
+}
+
+.customer-reviews__dot::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+.customer-reviews__dot[aria-current="true"]::before {
+  background-color: currentColor;
+}
+
+.customer-reviews__dot:hover::before {
+  background-color: rgba(var(--color-foreground), 0.45);
+}
+
+.customer-reviews__dot[aria-current="true"]:hover::before {
+  background-color: currentColor;
+}
+
+.customer-reviews__dot:focus-visible {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.75);
+  outline-offset: 0;
+  border-radius: 50%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .customer-reviews__dot::before {
+    transition: background-color 0.2s ease;
+  }
+}
+
+/* Tablet: two columns */
+@media screen and (min-width: 768px) {
+  .customer-reviews {
+    gap: 4rem;
+  }
+
+  .customer-reviews__track {
+    --customer-reviews-per-view: 2;
+    --customer-reviews-gap: 3rem;
+  }
+}
+
+/* Desktop: three columns */
+@media screen and (min-width: 1024px) {
+  .customer-reviews {
+    gap: 4.8rem;
+  }
+
+  .customer-reviews__track {
+    --customer-reviews-per-view: 3;
+    --customer-reviews-gap: 4rem;
+  }
+}
