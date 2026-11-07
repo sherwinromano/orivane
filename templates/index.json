@@ -98,6 +98,99 @@
         "padding_bottom": 36
       }
     },
+    "featured_collection_4pmEa9": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "automated-collection",
+        "products_to_show": 5,
+        "title": "New Arrivals",
+        "heading_size": "h0",
+        "uppercase_heading": true,
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "main_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "color_scheme": "",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "customer_reviews_8Wce83": {
+      "type": "customer-reviews",
+      "blocks": {
+        "review_hxcgXg": {
+          "type": "review",
+          "settings": {
+            "quote": "Absolutely love the quality! The fabric feels comfortable, and the fit is just perfect. Definitely ordering again!",
+            "name": "Sarah Miller",
+            "rating": 5
+          }
+        },
+        "review_p8Dxqb": {
+          "type": "review",
+          "settings": {
+            "quote": "Such a beautiful piece! It looks exactly like the photos and feels even better in person. Highly recommended!",
+            "name": "Emily Rogers",
+            "rating": 5
+          }
+        },
+        "review_3FNaCA": {
+          "type": "review",
+          "settings": {
+            "quote": "Simple, stylish, and comfortable. I love how easy it is to pair with my everyday outfits!",
+            "name": "Jessica Lee",
+            "rating": 5
+          }
+        },
+        "review_N6kNWP": {
+          "type": "review",
+          "settings": {
+            "quote": "Great quality and a perfect fit. The material is soft and comfortable. Really happy with my purchase!",
+            "name": "Michael Travis",
+            "rating": 5
+          }
+        },
+        "review_QtPdW8": {
+          "type": "review",
+          "settings": {
+            "quote": "Love the minimalist style! Looks great, feels great, and the quality is definitely worth it.",
+            "name": "Daniel Knight",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "review_hxcgXg",
+        "review_p8Dxqb",
+        "review_3FNaCA",
+        "review_N6kNWP",
+        "review_QtPdW8"
+      ],
+      "name": "Customer reviews",
+      "settings": {
+        "heading": "Customer's reviews",
+        "heading_size": "h1",
+        "uppercase_heading": true,
+        "heading_alignment": "center",
+        "color_scheme": "",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
     "featured_blog_dKc4EX": {
       "type": "featured-blog",
       "name": "t:sections.featured-blog.presets.name",
@@ -122,6 +215,8 @@
   "order": [
     "image_banner",
     "shop_by_category_HW7tAN",
+    "featured_collection_4pmEa9",
+    "customer_reviews_8Wce83",
     "featured_blog_dKc4EX"
   ]
 }
