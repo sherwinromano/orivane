@@ -104,8 +104,9 @@
       "settings": {
         "blog": "news",
         "post_limit": 3,
-        "heading": "Blog posts",
+        "heading": "News Articles",
         "heading_size": "h0",
+        "uppercase_heading": true,
         "columns_desktop": 3,
         "show_view_all": true,
         "show_image": true,
