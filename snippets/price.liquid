@@ -89,7 +89,10 @@
           </span>
         {%- endif -%}
       </div>
-      <div class="price__sale">
+      <div
+        class="price__sale"
+        style="{% if compare_at_price > price %}display: flex; flex-direction: column;{% endif %}"
+      >
         {%- unless product.price_varies == false and product.compare_at_price_varies %}
           <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
           <span>
@@ -108,7 +111,10 @@
         </span>
       </div>
       {%- if product.selected_or_first_available_variant.unit_price_measurement -%}
-        {% render 'unit-price', price: product.selected_or_first_available_variant.unit_price, measurement: product.selected_or_first_available_variant.unit_price_measurement %}
+        {% render 'unit-price',
+          price: product.selected_or_first_available_variant.unit_price,
+          measurement: product.selected_or_first_available_variant.unit_price_measurement
+        %}
       {%- endif -%}
     </div>
     {%- if show_badges -%}
