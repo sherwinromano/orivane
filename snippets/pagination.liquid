@@ -3,6 +3,7 @@
 
   @param {paginate} paginate - The paginate object for the current paginated results.
   @param {string} [anchor] - A URL fragment appended to each page link. Defaults to no fragment.
+  @param {string} [filter_type] - The active collection filter layout.
 
   @example
   {% paginate collection.products by 24 %}
@@ -12,21 +13,71 @@
 
 {{ 'component-pagination.css' | asset_url | stylesheet_tag }}
 
+{% style %}
+  {%if filter_type == 'vertical' %}
+    .pagination__list li:first-child, .pagination__list li:last-child  {
+      max-width: fit-content;
+      width: fit-content;
+      padding-inline: 1rem;
+    }
+
+    .pagination__item--current {
+      background-color: rgb(var(--color-foreground));
+      color: rgb(var(--color-background));
+      opacity: 1;
+    }
+
+    .pagination__list li .svg-wrapper {
+      width: 100%;
+    }
+
+    .pagination-wrapper--vertical .pagination__item::after {
+    display: none;
+   }
+
+   .pagination__item.pagination__item-arrow {
+    text-transform: uppercase;
+   }
+
+    .pagination-wrapper--vertical .pagination__item--disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  {% endif %}
+{% endstyle %}
+
 {%- if paginate.parts.size > 0 -%}
-  <div class="pagination-wrapper" data-page="{{ paginate.current_page }}">
+  <div
+    class="pagination-wrapper{% if filter_type == 'vertical' %} pagination-wrapper--vertical{% endif %}"
+    data-page="{{ paginate.current_page }}"
+  >
     <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
       <ul class="pagination__list list-unstyled" role="list">
-        {%- if paginate.previous -%}
+        {%- if paginate.previous or filter_type == 'vertical' -%}
           <li>
-            <a
-              href="{{ paginate.previous.url }}{{ anchor }}"
-              class="pagination__item pagination__item--next pagination__item-arrow link motion-reduce"
-              aria-label="{{ 'general.pagination.previous' | t }}"
-            >
-              <span class="svg-wrapper">
-                {{- 'icon-caret.svg' | inline_asset_content -}}
+            {%- if paginate.previous -%}
+              <a
+                href="{{ paginate.previous.url }}{{ anchor }}"
+                class="pagination__item pagination__item--next pagination__item-arrow link motion-reduce"
+                aria-label="{{ 'general.pagination.previous' | t }}"
+              >
+                <span class="svg-wrapper">
+                  {% if filter_type == 'vertical' %}
+                    Previous
+                  {% else %}
+                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                  {% endif %}
+                </span>
+              </a>
+            {%- else -%}
+              <span
+                class="pagination__item pagination__item--next pagination__item-arrow pagination__item--disabled"
+                aria-label="{{ 'general.pagination.previous' | t }}"
+                aria-disabled="true"
+              >
+                Previous
               </span>
-            </a>
+            {%- endif -%}
           </li>
         {%- endif -%}
 
@@ -58,17 +109,31 @@
           </li>
         {%- endfor -%}
 
-        {%- if paginate.next -%}
+        {%- if paginate.next or filter_type == 'vertical' -%}
           <li>
-            <a
-              href="{{ paginate.next.url }}{{ anchor }}"
-              class="pagination__item pagination__item--prev pagination__item-arrow link motion-reduce"
-              aria-label="{{ 'general.pagination.next' | t }}"
-            >
-              <span class="svg-wrapper">
-                {{- 'icon-caret.svg' | inline_asset_content -}}
+            {%- if paginate.next -%}
+              <a
+                href="{{ paginate.next.url }}{{ anchor }}"
+                class="pagination__item pagination__item--prev pagination__item-arrow link motion-reduce"
+                aria-label="{{ 'general.pagination.next' | t }}"
+              >
+                <span class="svg-wrapper">
+                  {% if filter_type == 'vertical' %}
+                    Next
+                  {% else %}
+                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                  {% endif %}
+                </span>
+              </a>
+            {%- else -%}
+              <span
+                class="pagination__item pagination__item--prev pagination__item-arrow pagination__item--disabled"
+                aria-label="{{ 'general.pagination.next' | t }}"
+                aria-disabled="true"
+              >
+                Next
               </span>
-            </a>
+            {%- endif -%}
           </li>
         {%- endif -%}
       </ul>
