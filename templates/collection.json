@@ -25,14 +25,6 @@
         "mobile_height": 200
       }
     },
-    "banner": {
-      "type": "main-collection-banner",
-      "settings": {
-        "show_collection_description": true,
-        "show_collection_image": false,
-        "color_scheme": "scheme-1"
-      }
-    },
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
@@ -56,7 +48,6 @@
   },
   "order": [
     "page_banner_HXWyY3",
-    "banner",
     "product-grid"
   ]
 }

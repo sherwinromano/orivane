@@ -19,10 +19,10 @@
         "overlay_opacity": 50,
         "heading": "",
         "uppercase_heading": true,
-        "heading_size": 100,
+        "heading_size": 150,
         "show_breadcrumbs": true,
-        "desktop_height": 300,
-        "mobile_height": 200
+        "desktop_height": 450,
+        "mobile_height": 350
       }
     }
   },
