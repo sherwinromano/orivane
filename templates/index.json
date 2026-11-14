@@ -191,6 +191,22 @@
         "padding_bottom": 96
       }
     },
+    "video_p4DaQz": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://www.youtube.com/watch?v=pOe5M0GtYZo",
+        "cover_image": "shopify://shop_images/thumbnail.webp",
+        "description": "",
+        "full_width": true,
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_blog_dKc4EX": {
       "type": "featured-blog",
       "name": "t:sections.featured-blog.presets.name",
@@ -217,6 +233,7 @@
     "shop_by_category_HW7tAN",
     "featured_collection_4pmEa9",
     "customer_reviews_8Wce83",
+    "video_p4DaQz",
     "featured_blog_dKc4EX"
   ]
 }
