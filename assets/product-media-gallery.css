@@ -1,0 +1,35 @@
+media-gallery slider-component {
+  margin: 0 !important;
+}
+
+media-gallery slider-component {
+  position: relative;
+}
+
+media-gallery slider-component button.slider-button {
+  position: absolute;
+  top: 45%;
+  z-index: 50;
+  background-color: rgb(var(--color-background));
+  border-radius: 50%;
+}
+
+media-gallery slider-component button.slider-button:disabled {
+  opacity: 0.5;
+}
+
+media-gallery slider-component button.slider-button[name="previous"] span svg {
+  transform: rotate(180deg);
+}
+
+media-gallery slider-component button.slider-button[name="previous"] {
+  left: -10px;
+}
+
+media-gallery slider-component button.slider-button[name="next"] {
+  right: -10px;
+}
+
+slider-component .slider-buttons {
+  display: none;
+}

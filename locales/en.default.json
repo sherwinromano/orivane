@@ -293,13 +293,13 @@
       }
     },
     "cart": {
-      "title": "Your cart",
+      "title": "Cart",
       "caption": "Cart items",
       "remove_title": "Remove {{ title }}",
       "estimated_total": "Estimated total",
       "new_estimated_total": "New estimated total",
       "note": "Order special instructions",
-      "checkout": "Check out",
+      "checkout": "Secure Checkout",
       "empty": "Your cart is empty",
       "product_disclosure": "Product disclosure",
       "product_disclosures": "Product disclosures",

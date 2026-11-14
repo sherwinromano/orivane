@@ -42,6 +42,10 @@
   endif
 -%}
 
+{% if layout_type == 'thumbnail' %}
+  {{ 'product-media-gallery.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
 <media-gallery
   id="MediaGallery-{{ section.id }}"
   role="region"
@@ -56,6 +60,19 @@
     <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-{{ section.id }}">
       {{ 'accessibility.skip_to_product_info' | t }}
     </a>
+    {% if layout_type == 'thumbnail' %}
+      <button
+        type="button"
+        class="slider-button slider-button--prev"
+        name="previous"
+        aria-label="{{ 'general.slider.previous_slide' | t }}"
+      >
+        <span class="svg-wrapper">
+          {{- 'arrow-direction.svg' | inline_asset_content -}}
+        </span>
+      </button>
+    {% endif %}
+
     <ul
       id="Slider-Gallery-{{ section.id }}"
       class="product__media-list contains-media grid grid--peek list-unstyled slider slider--mobile"
@@ -125,6 +142,19 @@
         {%- endunless -%}
       {%- endfor -%}
     </ul>
+    {% if layout_type == 'thumbnail' %}
+      <button
+        type="button"
+        class="slider-button slider-button--next"
+        name="next"
+        aria-label="{{ 'general.slider.next_slide' | t }}"
+      >
+        <span class="svg-wrapper">
+          {{- 'arrow-direction.svg' | inline_asset_content -}}
+        </span>
+      </button>
+    {% endif %}
+
     <div class="slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}">
       <button
         type="button"
@@ -136,12 +166,14 @@
           {{- 'icon-caret.svg' | inline_asset_content -}}
         </span>
       </button>
-      <div class="slider-counter caption">
+
+      <div class="slider-counter caption" style="{%if layout_type == 'thumbnail' %}display: none;{% endif %}">
         <span class="slider-counter--current">1</span>
         <span aria-hidden="true"> / </span>
         <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
         <span class="slider-counter--total">{{ media_count }}</span>
       </div>
+
       <button
         type="button"
         class="slider-button slider-button--next"

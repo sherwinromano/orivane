@@ -39,6 +39,45 @@
   endif
 -%}
 
+{% if layout_type == 'thumbnail' %}
+  {% style %}
+    product-component .product__info-wrapper .price {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    product-component .product__info-wrapper .price .price__container,
+    .price .badge {
+      margin: 0 !important;
+    }
+
+    product-component .product__info-wrapper .price.price--on-sale .price__container .price__sale {
+      display: flex !important;
+      flex-direction: row-reverse !important;
+    }
+
+    product-component .product__info-wrapper .price__container .price__sale span.centered {
+      display: flex;
+      align-items: center;
+    }
+
+    product-component .product__info-wrapper .price.price--large.price--on-sale.price--show-badge {
+      align-items: center;
+    }
+
+    product-component .product__info-wrapper .price .price__regular .price-item.price-item--regular,
+    product-component
+      .product__info-wrapper
+      .price.price--on-sale
+      .price__container
+      .price__sale
+      .price-item.price-item--sale {
+      font-size: 3rem;
+    }
+  {% endstyle %}
+{% endif %}
+
 {%- unless target == null and placeholder == null -%}
   <div
     class="
@@ -91,11 +130,10 @@
       </div>
       <div
         class="price__sale"
-        style="{% if compare_at_price > price %}display: flex; flex-direction: column;{% endif %}"
       >
         {%- unless product.price_varies == false and product.compare_at_price_varies %}
           <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
-          <span>
+          <span class="centered">
             <s class="price-item price-item--regular">
               {% if settings.currency_code_enabled %}
                 {{ compare_at_price | money_with_currency }}

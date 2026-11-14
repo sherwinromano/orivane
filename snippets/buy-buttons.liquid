@@ -11,6 +11,22 @@
   @example
   {% render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true %}
 {% enddoc %}
+
+{% if layout_type == 'thumbnail' %}
+  {% style %}
+    .product-form__buttons {
+      max-width: 100%;
+    }
+
+    .product-form__buttons button#ProductSubmitButton-{{ section_id }}, .product-form__buttons .shopify-payment-button shopify-accelerated-checkout shopify-buy-it-now-button button {
+      padding-block: 1.80rem;
+      text-transform: uppercase;
+      height: fit-content;
+      font-family: var(--font-heading-family);
+    }
+  {% endstyle %}
+{% endif -%}
+
 <div {{ block.shopify_attributes }}>
   {%- if product != blank -%}
     {%- liquid

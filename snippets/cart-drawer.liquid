@@ -19,6 +19,78 @@
   }
 </style>
 
+{% comment %}
+  CSS Customizations
+{% endcomment %}
+{% style %}
+  cart-drawer #CartDrawer {
+    width: 100%;
+  }
+
+  cart-drawer .drawer__inner {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  cart-drawer .drawer__heading {
+    font-family: var(--font-body-family);
+    margin: 0;
+  }
+
+  .cart__payment {
+    margin-block: 0;
+  }
+
+  .cart__payment .list.list-payment {
+    justify-content: center;
+  }
+
+  cart-drawer .cart-drawer__footer {
+    margin-bottom: 2rem;
+  }
+
+  cart-drawer #CartDrawer-Checkout {
+    text-transform: uppercase;
+    font-family: var(--font-heading-family);
+  }
+
+  cart-drawer .totals {
+    align-items: center;
+  }
+
+  cart-drawer .totals * {
+    margin: 0;
+  }
+
+  cart-drawer .totals > h2 {
+    font-size: 1.8rem;
+  }
+
+  cart-drawer .totals > .totals__total-value {
+    font-size: 2rem;
+    color: rgb(var(--color-foreground));
+  }
+
+  cart-drawer .cart-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 8px;
+  }
+
+  cart-drawer .cart-footer small.tax-note {
+    margin: 0 !important;
+  }
+
+  @media screen and (min-width: 750px) {
+    cart-drawer #CartDrawer {
+      width: 45%;
+    }
+  }
+{% endstyle %}
+
 <cart-drawer class="drawer{% if cart == empty %} is-empty{% endif %}">
   <div id="CartDrawer" class="cart-drawer">
     <div id="CartDrawer-Overlay" class="cart-drawer__overlay"></div>
@@ -158,7 +230,10 @@
                             <a href="{{ item.url }}" class="cart-item__name h4 break">
                               {{- item.product.title | escape -}}
                             </a>
-                            {%- assign cart_disclosure_modal_id = 'CartDisclosureModal-drawer-' | append: item.key | replace: ':', '-' -%}
+                            {%- assign cart_disclosure_modal_id = 'CartDisclosureModal-drawer-'
+                              | append: item.key
+                              | replace: ':', '-'
+                            -%}
                             {%- render 'cart-disclosure-indicator',
                               product: item.product,
                               modal_id: cart_disclosure_modal_id
@@ -527,10 +602,28 @@
           </div>
 
           <div class="totals" role="status">
-            <h2 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
+            <h2 class="totals__total text-body">{{ 'sections.cart.estimated_total' | t }}</h2>
             <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
           </div>
+        </div>
 
+        <!-- CTAs -->
+
+        <div class="cart__ctas" {{ block.shopify_attributes }}>
+          <button
+            type="submit"
+            id="CartDrawer-Checkout"
+            class="cart__checkout-button button"
+            name="checkout"
+            form="CartDrawer-Form"
+            {% if cart == empty %}
+              disabled
+            {% endif %}
+          >
+            {{ 'sections.cart.checkout' | t }}
+          </button>
+        </div>
+        <div class="cart-footer">
           <small class="tax-note caption-large rte">
             {%- if cart.duties_included and cart.taxes_included -%}
               {%- if shop.shipping_policy.body == blank -%}
@@ -570,23 +663,16 @@
               {%- endif -%}
             {%- endif -%}
           </small>
-        </div>
-
-        <!-- CTAs -->
-
-        <div class="cart__ctas" {{ block.shopify_attributes }}>
-          <button
-            type="submit"
-            id="CartDrawer-Checkout"
-            class="cart__checkout-button button"
-            name="checkout"
-            form="CartDrawer-Form"
-            {% if cart == empty %}
-              disabled
-            {% endif %}
-          >
-            {{ 'sections.cart.checkout' | t }}
-          </button>
+          <div class="cart__payment">
+            <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
+            <ul class="list list-payment" role="list" style="padding-top: 0;">
+              {%- for type in shop.enabled_payment_types -%}
+                <li class="list-payment__item">
+                  {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
