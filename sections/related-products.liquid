@@ -7,17 +7,41 @@
 {%- endif -%}
 
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    #shopify-section-{{ section.id }} product-component .card__heading.h5 {
+       text-transform: uppercase;
+       font-family: var(--font-body-family);
+       font-weight: 600;
+    }
+
+
+  #shopify-section-{{ section.id }} product-component .card__information .price.price--on-sale .price__container .price__sale {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 1rem;
   }
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+  #shopify-section-{{ section.id }} product-component .card__information .price .price__regular .price-item.price-item--regular,
+    product-component
+      .card__information
+      .price.price--on-sale
+      .price__container
+      .price__sale
+      .price-item.price-item--sale {
+      font-size: 1.95rem;
     }
-  }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
@@ -28,7 +52,10 @@
     data-product-id="{{ product.id }}"
   >
     {% if recommendations.performed and recommendations.products_count > 0 %}
-      <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
+      <h2
+        class="related-products__heading inline-richtext {{ section.settings.heading_size }}"
+        style="{% if section.settings.uppercase_heading %}text-transform: uppercase;{% endif %}text-align: {{ section.settings.heading_alignment }}"
+      >
         {{ section.settings.heading }}
       </h2>
       <ul
@@ -104,6 +131,31 @@
       "label": "t:sections.all.heading_size.label"
     },
     {
+      "type": "select",
+      "id": "heading_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "start"
+        },
+        {
+          "value": "center",
+          "label": "center"
+        },
+        {
+          "value": "end",
+          "label": "end"
+        }
+      ],
+      "default": "start",
+      "label": "Heading alignment"
+    },
+    {
+      "type": "checkbox",
+      "id": "uppercase_heading",
+      "label": "Uppercase heading"
+    },
+    {
       "type": "range",
       "id": "products_to_show",
       "min": 2,
@@ -135,7 +187,7 @@
           "value": "2",
           "label": "t:sections.related-products.settings.columns_mobile.options__2.label"
         }
-      ]    
+      ]
     },
     {
       "type": "color_scheme",

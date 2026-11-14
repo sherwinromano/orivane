@@ -27,6 +27,10 @@
   endif
 -%}
 
+{% if filter_type == 'vertical' %}
+  {{ 'facets-mobile.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
 <div
   class="facets-container{% if filter_type == 'drawer' %} facets-container-drawer{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
   data-collection-id="{{ results.id }}"
@@ -732,7 +736,12 @@
                       >
                         <summary class="mobile-facets__summary focus-inset">
                           <div>
-                            <span>{{ filter.label | escape }}</span>
+                            {% if filter_type == 'vertical' %}
+                              <span class="h3">{{ filter.label | escape }}</span>
+                            {% else %}
+                              <span>{{ filter.label | escape }}</span>
+                            {% endif %}
+
                             <span class="mobile-facets__arrow">
                               {{- 'icon-arrow.svg' | inline_asset_content -}}
                             </span>
@@ -748,7 +757,12 @@
                             type="button"
                           >
                             {{- 'icon-arrow.svg' | inline_asset_content -}}
-                            <span>{{ filter.label | escape }}</span>
+                            {% if filter_type == 'vertical' %}
+                              <span class="h4">{{ filter.label | escape }}</span>
+                            {% else %}
+                              <span>{{ filter.label | escape }}</span>
+                            {% endif %}
+
                             {%- if filter.operator == 'AND' -%}
                               <span class="facets__and-helptext">
                                 {{ 'products.facets.filter_and_operator_subtitle' | t }}
@@ -874,7 +888,11 @@
                       >
                         <summary class="mobile-facets__summary focus-inset">
                           <div>
-                            <span>{{ filter.label | escape }}</span>
+                            {% if filter_type == 'vertical' %}
+                              <span class="h3">{{ filter.label | escape }}</span>
+                            {% else %}
+                              <span>{{ filter.label | escape }}</span>
+                            {% endif %}
                             <span class="mobile-facets__arrow">
                               {{- 'icon-arrow.svg' | inline_asset_content -}}
                             </span>

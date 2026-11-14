@@ -54,14 +54,34 @@
 
   {% assign escaped_value = value | escape %}
 
+  {% comment %}
+    CSS customizations
+  {% endcomment %}
+  {% if picker_type == 'button' and layout_type == 'thumbnail' %}
+    {% style %}
+      .product-form__input--pill input[type='radio'] + label.button_input {
+        border-radius: 0;
+        text-transform: uppercase;
+        padding-inline: 4.55rem;
+        padding-block: 1.55rem;
+      }
+
+      .product-form__input--pill input[type='radio'].disabled + label {
+        border: 1px solid rgba(var(--color-foreground), 0.3);
+        color: rgba(var(--color-foreground), 0.5);
+        text-decoration: none;
+        cursor: not-allowed;
+      }
+    {% endstyle %}
+  {% endif %}
+
   {%- if picker_type == 'swatch' -%}
     {%- capture help_text -%}
       <span class="visually-hidden">{{ escaped_value }}</span>
       {{ label_unavailable }}
     {%- endcapture -%}
 
-    {%
-      render 'swatch-input',
+    {% render 'swatch-input',
       id: input_id,
       name: input_name,
       value: escaped_value,
@@ -84,11 +104,12 @@
         checked
       {% endif %}
       {% if option_disabled %}
+        disabled
         class="disabled"
       {% endif %}
       {{ input_dataset }}
     >
-    <label for="{{ input_id }}">
+    <label for="{{ input_id }}" class="button_input">
       {{ value -}}
       {{ label_unavailable }}
     </label>

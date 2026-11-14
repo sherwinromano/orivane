@@ -1,0 +1,30 @@
+/* This style will apply to facet drawer in mobile for vertical type filter*/
+
+menu-drawer .mobile-facets__inner {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+menu-drawer .mobile-facets__header {
+  border: none;
+}
+
+menu-drawer .mobile-facets__header .mobile-facets__header-inner {
+  display: none;
+}
+
+menu-drawer .mobile-facets__open-label.button-label.medium-hide.large-up-hide,
+menu-drawer summary.mobile-facets__summary div span.h3,
+menu-drawer .mobile-facets__close-button.link.link--text.focus-inset span.h4 {
+  text-transform: uppercase;
+}
+
+menu-drawer summary.mobile-facets__summary div span.mobile-facets__arrow {
+  display: none;
+}
+
+menu-drawer .mobile-facets__sort {
+  flex-direction: column;
+  align-items: stretch;
+}

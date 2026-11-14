@@ -9,6 +9,15 @@
   @example
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {%- enddoc -%}
+
+{% if layout_type == 'thumbnail' %}
+  {% style %}
+    #variant-selects-{{ section.id }} .form__label.h3, .product__info-wrapper label.quantity__label.form__label span {
+      text-transform: uppercase;
+      font-size: 1.55rem;
+    }
+  {% endstyle %}
+{% endif %}
 {%- unless product.has_only_default_variant -%}
   <variant-selects
     id="variant-selects-{{ section.id }}"
@@ -35,25 +44,22 @@
       -%}
       {%- if picker_type == 'swatch' -%}
         <fieldset class="js product-form__input product-form__input--swatch">
-          <legend class="form__label">
-            {{ option.name }}:
-            <span data-selected-value>
+          <legend class="form__label {% if layout_type == 'thumbnail' %}h3{% endif %}">
+            {{ option.name }}"> {{ option.name }}:
+            <span data-selected-value style="text-decoration: underline;">
               {{- option.selected_value -}}
             </span>
           </legend>
-          {% render 'product-variant-options',
-            option: option,
-            block: block,
-            picker_type: picker_type
-          %}
+          {% render 'product-variant-options', option: option, block: block, picker_type: picker_type %}
         </fieldset>
       {%- elsif picker_type == 'button' -%}
         <fieldset class="js product-form__input product-form__input--pill">
-          <legend class="form__label">{{ option.name }}</legend>
+          <legend class="form__label {% if layout_type == 'thumbnail' %}h3{% endif %}">{{ option.name }}</legend>
           {% render 'product-variant-options',
             option: option,
             block: block,
-            picker_type: picker_type
+            picker_type: picker_type,
+            layout_type: layout_type
           %}
         </fieldset>
       {%- else -%}
@@ -76,11 +82,7 @@
               name="options[{{ option.name | escape }}]"
               form="{{ product_form_id }}"
             >
-              {% render 'product-variant-options',
-                option: option,
-                block: block,
-                picker_type: picker_type
-              %}
+              {% render 'product-variant-options', option: option, block: block, picker_type: picker_type %}
             </select>
             <span class="svg-wrapper">
               {{- 'icon-caret.svg' | inline_asset_content -}}
