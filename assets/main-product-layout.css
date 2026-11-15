@@ -2,6 +2,7 @@ product-component .product__media-wrapper media-gallery {
   display: flex;
   flex-direction: row-reverse;
   height: 100%;
+  gap: 1rem;
 }
 
 .product__media-wrapper media-gallery slider-component.slider-mobile-gutter {
