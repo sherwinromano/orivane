@@ -21,8 +21,8 @@
         "uppercase_heading": true,
         "heading_size": 150,
         "show_breadcrumbs": true,
-        "desktop_height": 450,
-        "mobile_height": 350
+        "desktop_height": 300,
+        "mobile_height": 200
       }
     }
   },

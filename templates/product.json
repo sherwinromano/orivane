@@ -9,6 +9,22 @@
  */
 {
   "sections": {
+    "page_banner_fMJ6bW": {
+      "type": "page-banner",
+      "name": "Page banner",
+      "settings": {
+        "image": "shopify://shop_images/hero.webp",
+        "background_color": "#111111",
+        "overlay_color": "#000000",
+        "overlay_opacity": 50,
+        "heading": "Shop Single",
+        "uppercase_heading": true,
+        "heading_size": 150,
+        "show_breadcrumbs": true,
+        "desktop_height": 300,
+        "mobile_height": 200
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -38,6 +54,14 @@
             "swatch_shape": "none"
           }
         },
+        "inventory_8TFwhx": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 3,
+            "show_inventory_quantity": true
+          }
+        },
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {}
@@ -56,6 +80,7 @@
         "price",
         "description",
         "variant_picker",
+        "inventory_8TFwhx",
         "quantity_selector",
         "buy_buttons"
       ],
@@ -71,8 +96,8 @@
         "image_zoom": "lightbox",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
     "disclosures": {
@@ -102,12 +127,13 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "padding_top": 36,
-        "padding_bottom": 28
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     }
   },
   "order": [
+    "page_banner_fMJ6bW",
     "main",
     "disclosures",
     "related-products"

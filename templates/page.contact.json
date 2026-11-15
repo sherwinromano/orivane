@@ -1,7 +1,33 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
+    "page_banner_VELwKA": {
+      "type": "page-banner",
+      "name": "Page banner",
+      "settings": {
+        "image": "shopify://shop_images/hero.webp",
+        "background_color": "#111111",
+        "overlay_color": "#000000",
+        "overlay_opacity": 50,
+        "heading": "",
+        "uppercase_heading": true,
+        "heading_size": 150,
+        "show_breadcrumbs": true,
+        "desktop_height": 300,
+        "mobile_height": 200
+      }
+    },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 36,
         "padding_bottom": 36
@@ -19,6 +45,7 @@
     }
   },
   "order": [
+    "page_banner_VELwKA",
     "main",
     "form"
   ]

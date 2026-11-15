@@ -67,7 +67,7 @@
             "image": "shopify://shop_images/womens-category.webp",
             "heading": "Women",
             "button_label": "Shop collection",
-            "link": "shopify://collections"
+            "link": "shopify://collections/women"
           }
         },
         "card_jbRtQt": {
@@ -76,7 +76,7 @@
             "image": "shopify://shop_images/mens-category.webp",
             "heading": "Men",
             "button_label": "Shop collection",
-            "link": "shopify://collections"
+            "link": "shopify://collections/men"
           }
         }
       },
@@ -94,15 +94,15 @@
         "card_gap": 8,
         "overlay_opacity": 30,
         "color_scheme": "scheme-2",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
     "featured_collection_4pmEa9": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "collection": "automated-collection",
+        "collection": "men",
         "products_to_show": 5,
         "title": "New Arrivals",
         "heading_size": "h0",
@@ -125,8 +125,8 @@
         "quick_add": "none",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
     "customer_reviews_8Wce83": {
@@ -203,8 +203,8 @@
         "description": "",
         "full_width": true,
         "color_scheme": "scheme-2",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
     "featured_blog_dKc4EX": {
@@ -223,8 +223,8 @@
         "show_author": false,
         "show_excerpt": false,
         "color_scheme": "scheme-2",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     }
   },
