@@ -61,13 +61,21 @@
     {%- if section.settings.show_breadcrumbs -%}
       <nav class="page-banner__breadcrumb" aria-label="Breadcrumb">
         <ol class="page-banner__breadcrumb-list">
-          <li class="page-banner__breadcrumb-item">
-            <a class="page-banner__breadcrumb-link" href="{{ routes.root_url }}">
-              {{- 'Home' | escape -}}
-            </a>
-          </li>
+          {%- if template.name == 'product' -%}
+            <li class="page-banner__breadcrumb-item">
+              <a class="page-banner__breadcrumb-link" href="{{ routes.all_products_collection_url }}">
+                {{- 'Shop' | escape -}}
+              </a>
+            </li>
+          {%- else -%}
+            <li class="page-banner__breadcrumb-item">
+              <a class="page-banner__breadcrumb-link" href="{{ routes.root_url }}">
+                {{- 'Home' | escape -}}
+              </a>
+            </li>
+          {%- endif -%}
 
-          {%- if section.settings.parent_label != blank -%}
+          {%- if template.name != 'product' and section.settings.parent_label != blank -%}
             <li class="page-banner__breadcrumb-item">
               {%- if section.settings.parent_url != blank -%}
                 <a class="page-banner__breadcrumb-link" href="{{ section.settings.parent_url }}">

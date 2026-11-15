@@ -149,9 +149,14 @@
                         {%- if product.selected_or_first_available_variant.inventory_quantity
                             <= block.settings.inventory_threshold
                         -%}
-                          <span class="svg-wrapper" style="color: rgb(238, 148, 65)">
-                            {{- 'icon-inventory-status.svg' | inline_asset_content -}}
-                          </span>
+                          {% unless block.settings.text_style != 'uppercase'
+                            and block.settings.text_style != 'subtitle'
+                          %}
+                            <span class="svg-wrapper" style="color: rgb(238, 148, 65)">
+                              {{- 'icon-inventory-status.svg' | inline_asset_content -}}
+                            </span>
+                          {% endunless %}
+
                           {%- if block.settings.show_inventory_quantity -%}
                             {{-
                               'products.product.inventory_low_stock_show_count'
@@ -161,9 +166,13 @@
                             {{- 'products.product.inventory_low_stock' | t -}}
                           {%- endif -%}
                         {%- else -%}
-                          <span class="svg-wrapper" style="color: rgb(62, 214, 96)">
-                            {{- 'icon-inventory-status.svg' | inline_asset_content -}}
-                          </span>
+                          {% unless block.settings.text_style != 'uppercase'
+                            and block.settings.text_style != 'subtitle'
+                          %}
+                            <span class="svg-wrapper" style="color: rgb(62, 214, 96)">
+                              {{- 'icon-inventory-status.svg' | inline_asset_content -}}
+                            </span>
+                          {% endunless %}
                           {%- if block.settings.show_inventory_quantity -%}
                             {{-
                               'products.product.inventory_in_stock_show_count'
