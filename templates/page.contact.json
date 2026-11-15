@@ -25,14 +25,6 @@
         "mobile_height": 200
       }
     },
-    "main": {
-      "type": "main-page",
-      "disabled": true,
-      "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "form": {
       "type": "contact-form",
       "settings": {
@@ -46,7 +38,6 @@
   },
   "order": [
     "page_banner_VELwKA",
-    "main",
     "form"
   ]
 }
