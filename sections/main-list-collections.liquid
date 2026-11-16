@@ -1,6 +1,45 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
 
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-block: 100px;
+  }
+
+  #shopify-section-{{ section.id }} .card-wrapper .card {
+    position: relative;
+  }
+
+  #shopify-section-{{ section.id }} .card-wrapper .card > .card__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    height: 100%;
+    place-items: center;
+    color: #fff;
+  }
+
+  #shopify-section-{{ section.id }} .card-wrapper .card__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+  }
+
+  #shopify-section-{{section.id }} .full-unstyled-link {
+    color: rgb(var(--color-background));
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+
+  #shopify-section-{{section.id }} .full-unstyled-link > span {
+    display: none;
+  }
+{% endstyle %}
 <div class="page-width">
   <h1 class="title title--primary inline-richtext{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
     {{ section.settings.title }}

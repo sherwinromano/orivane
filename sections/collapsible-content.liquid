@@ -7,6 +7,15 @@
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
+  #shopify-section-{{ section.id }} summary {
+    padding: 1.88rem 0;
+  }
+
+  #shopify-section-{{ section.id }} summary h3 {
+    font-family: var(--font-body-family);
+    text-transform: uppercase;
+  }
+
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -177,7 +186,7 @@
     {
       "type": "header",
       "content": "t:sections.collapsible_content.settings.layout_header.content"
-    },    
+    },
     {
       "type": "select",
       "id": "layout",
@@ -203,7 +212,7 @@
       "id": "container_color_scheme",
       "label": "t:sections.collapsible_content.settings.container_color_scheme.label",
       "default": "scheme-2"
-    },    
+    },
     {
       "type": "color_scheme",
       "id": "color_scheme",

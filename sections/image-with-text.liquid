@@ -6,11 +6,22 @@
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
+  #shopify-section-{{ section.id }} .image-with-text__content {
+    padding: 2rem 0;
+  }
+
+
+
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
+
+    #shopify-section-{{ section.id }} .image-with-text__content {
+    padding: 4rem calc(4rem / var(--font-body-scale)) 5rem;
+  }
+
   }
 {%- endstyle -%}
 
@@ -69,6 +80,7 @@
                 {%- when 'heading' -%}
                   <h2
                     class="image-with-text__heading inline-richtext {{ block.settings.heading_size }}"
+                    style="{% if block.settings.uppercase_heading %}text-transform: uppercase; {% endif %}margin-top: 2rem;"
                     {{ block.shopify_attributes }}
                   >
                     {{ block.settings.heading }}
@@ -203,7 +215,7 @@
     {
       "type": "header",
       "content": "t:sections.image-with-text.settings.header.content"
-    }, 
+    },
     {
       "type": "select",
       "id": "content_layout",
@@ -219,7 +231,7 @@
       ],
       "default": "no-overlap",
       "label": "t:sections.image-with-text.settings.content_layout.label"
-    },       
+    },
     {
       "type": "select",
       "id": "desktop_content_position",
@@ -283,7 +295,7 @@
     {
       "type": "header",
       "content": "t:sections.image-with-text.settings.header_colors.content"
-    },        
+    },
     {
       "type": "color_scheme",
       "id": "section_color_scheme",
@@ -360,6 +372,12 @@
           ],
           "default": "h1",
           "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "uppercase_heading",
+          "label": "Uppercase heading",
+          "default": false
         }
       ]
     },
