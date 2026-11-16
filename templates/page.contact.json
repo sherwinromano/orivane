@@ -27,12 +27,49 @@
     },
     "form": {
       "type": "contact-form",
+      "blocks": {
+        "office_NfAR4F": {
+          "type": "office",
+          "settings": {
+            "title": "Office",
+            "address": "730 Glenstone Ave 65802, Springfield, US",
+            "phone_1": "+123 222 333 44",
+            "phone_2": "+123 666 777 88",
+            "email": "orivane@email.com"
+          }
+        },
+        "office_YVMX7g": {
+          "type": "office",
+          "settings": {
+            "title": "Management",
+            "address": "730 Glenstone Ave 65802, Springfield, US",
+            "phone_1": "+123 222 333 44",
+            "phone_2": "+123 666 777 88",
+            "email": "orivane@email.com"
+          }
+        }
+      },
+      "block_order": [
+        "office_NfAR4F",
+        "office_YVMX7g"
+      ],
       "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "heading": "Get In Touch",
+        "heading_size": "h0",
+        "form_text": "Use the form below to get in touch with us.",
+        "show_contact_info": true,
+        "info_heading": "Contact Info",
+        "info_text": "These are the contact details",
+        "name_label": "Name",
+        "email_label": "Email",
+        "phone_label": "Phone Number",
+        "subject_label": "Subject",
+        "subject_field_name": "Subject",
+        "message_label": "Your Message",
+        "submit_label": "Submit",
+        "color_scheme": "scheme-2",
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     }
   },

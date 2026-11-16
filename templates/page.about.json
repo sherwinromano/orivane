@@ -24,9 +24,154 @@
         "desktop_height": 300,
         "mobile_height": 200
       }
+    },
+    "image_with_text_eLrEUL": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_XUgEhd": {
+          "type": "caption",
+          "settings": {
+            "caption": "Our Story",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "large"
+          }
+        },
+        "heading_aMgwQw": {
+          "type": "heading",
+          "settings": {
+            "heading": "More Then Just Clothes",
+            "heading_size": "h0",
+            "uppercase_heading": true
+          }
+        },
+        "text_qAeFFV": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Orivane was born from a simple idea to create minimal, high-quality pieces that fit effortlessly into modern life. We believe timeless style, thoughtful design, and the power of simplicity.</p><p><br/>What started as a passion for clean aesthetics has grown into a brand for those who value comfort, confidence, and quiet sophistication.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "caption_XUgEhd",
+        "heading_aMgwQw",
+        "text_qAeFFV"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/story-img.webp",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "our_values_cYMiBt": {
+      "type": "our-values",
+      "blocks": {
+        "value_33yBHH": {
+          "type": "value",
+          "settings": {
+            "icon": "shirt",
+            "heading": "Timeless design",
+            "text": "Clean silhouettes. Lasting style."
+          }
+        },
+        "value_iMhLrn": {
+          "type": "value",
+          "settings": {
+            "icon": "heart",
+            "heading": "A better tomorrow",
+            "text": "More sustainable choices for a brighter future."
+          }
+        },
+        "value_hwNw3n": {
+          "type": "value",
+          "settings": {
+            "icon": "star",
+            "heading": "Premium quality",
+            "text": "Thoughtfully crafted. Made to last."
+          }
+        }
+      },
+      "block_order": [
+        "value_33yBHH",
+        "value_iMhLrn",
+        "value_hwNw3n"
+      ],
+      "name": "Our values",
+      "settings": {
+        "eyebrow": "Our values",
+        "heading": "Built on simplicity",
+        "heading_size": "h0",
+        "uppercase_heading": true,
+        "color_scheme": "scheme-2",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "image_with_text_NThJXm": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_XXcDHc": {
+          "type": "caption",
+          "settings": {
+            "caption": "Our Commitment",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "large"
+          }
+        },
+        "heading_WzKpLe": {
+          "type": "heading",
+          "settings": {
+            "heading": "Style With Purpose And Passion",
+            "heading_size": "h0",
+            "uppercase_heading": true
+          }
+        },
+        "text_BEijaH": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At Orivane, we're committed to delivering more than just fashion. We strive to inspire confidence, support conscious choices, and be part of a kinder, more stylish world.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "caption_XXcDHc",
+        "heading_WzKpLe",
+        "text_BEijaH"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/purpose-img.webp",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "right",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
     }
   },
   "order": [
-    "page_banner_EfAWAH"
+    "page_banner_EfAWAH",
+    "image_with_text_eLrEUL",
+    "our_values_cYMiBt",
+    "image_with_text_NThJXm"
   ]
 }
