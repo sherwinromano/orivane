@@ -28,13 +28,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {}
@@ -75,7 +68,6 @@
         }
       },
       "block_order": [
-        "vendor",
         "title",
         "price",
         "description",
@@ -130,12 +122,85 @@
         "padding_top": 100,
         "padding_bottom": 100
       }
+    },
+    "collapsible_content_8GhKeX": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_zLrApj": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What sizes are available?",
+            "icon": "none",
+            "row_content": "<p><br/>We offer a range of sizes to accommodate different fits and preferences. Each product includes a size guide to help you find the perfect fit. If you're between sizes, we recommend checking the product-specific measurements before ordering.<br/><br/></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_yPLyfT": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What materials are your clothing made from?",
+            "icon": "none",
+            "row_content": "<p>Our pieces are crafted using carefully selected materials that prioritize comfort, durability, and everyday wearability. You can find specific fabric and material information in each product description.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_bwhhFP": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does shipping take?",
+            "icon": "none",
+            "row_content": "<p>Orders are typically processed within <strong>1–3</strong> business days. Delivery times vary depending on your location and shipping method. You'll receive a tracking number once your order has been dispatched.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_QgT86n": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I return or exchange an item?",
+            "icon": "none",
+            "row_content": "<p>Yes! We accept returns and exchanges on eligible items within 14 days of delivery, provided they are unworn, unwashed, and in their original condition. Please review our return policy for complete details.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_dERjyE": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How can I contact customer support?",
+            "icon": "none",
+            "row_content": "<p>We're happy to help! You can reach our support team through our Contact Us page or email us directly. We'll do our best to respond within 24–48 business hours.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_zLrApj",
+        "collapsible_row_yPLyfT",
+        "collapsible_row_bwhhFP",
+        "collapsible_row_QgT86n",
+        "collapsible_row_dERjyE"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h0",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "scheme-2",
+        "open_first_collapsible_row": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
     }
   },
   "order": [
     "page_banner_fMJ6bW",
     "main",
     "disclosures",
-    "related-products"
+    "related-products",
+    "collapsible_content_8GhKeX"
   ]
 }
