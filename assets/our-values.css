@@ -1,0 +1,145 @@
+/* Our values
+   Note: Dawn sets html { font-size: 62.5% }, so 1rem = 10px at default scale.
+   Outer width and gutters come from Dawn's .page-width wrapper. */
+
+.our-values {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* Header */
+.our-values__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  text-align: center;
+}
+
+.our-values__eyebrow {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.our-values__title {
+  margin: 0;
+  line-height: 1.1;
+  overflow-wrap: break-word;
+}
+
+.our-values__title--uppercase {
+  text-transform: uppercase;
+}
+
+/* Columns: stacked on mobile, side by side from tablet up */
+.our-values__list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.our-values__item {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  padding: 3.2rem 2rem;
+  text-align: center;
+}
+
+.our-values__item:first-child {
+  padding-top: 0;
+}
+
+.our-values__item:last-child {
+  padding-bottom: 0;
+}
+
+.our-values__item + .our-values__item {
+  border-top: 1px solid rgba(var(--color-foreground), 0.35);
+}
+
+.our-values__icon {
+  display: block;
+  margin-bottom: 2rem;
+  color: rgb(var(--color-foreground));
+  line-height: 0;
+}
+
+/* Two classes so this wins over Dawn's .icon-accordion sizing */
+.our-values__icon .icon {
+  width: 4.4rem;
+  height: 4.4rem;
+}
+
+.our-values__heading {
+  margin: 0 0 1rem;
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.3;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+.our-values__text {
+  max-width: 28rem;
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.7;
+  color: rgba(var(--color-foreground), 0.75);
+  text-wrap: balance;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .our-values {
+    gap: 4.8rem;
+  }
+
+  .our-values__list {
+    flex-direction: row;
+  }
+
+  .our-values__item,
+  .our-values__item:first-child,
+  .our-values__item:last-child {
+    padding: 0 2rem;
+  }
+
+  .our-values__item + .our-values__item {
+    border-top: 0;
+    border-inline-start: 1px solid rgba(var(--color-foreground), 0.35);
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+  .our-values__item,
+  .our-values__item:first-child,
+  .our-values__item:last-child {
+    padding: 0 4rem;
+  }
+
+  .our-values__icon .icon {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .our-values__heading {
+    font-size: 1.8rem;
+  }
+
+  .our-values__text {
+    font-size: 1.5rem;
+  }
+}
